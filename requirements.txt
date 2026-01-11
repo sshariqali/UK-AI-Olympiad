@@ -6,3 +6,4 @@ scikit-learn
 torchvision
 seaborn
 plotly-express
+tiktoken
