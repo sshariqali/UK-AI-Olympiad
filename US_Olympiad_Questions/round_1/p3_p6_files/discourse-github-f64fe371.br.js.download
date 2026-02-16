@@ -1,0 +1,6 @@
+define("discourse/plugins/discourse-github/discourse/initializers/github-admin-plugin-configuration-nav",["exports","discourse/lib/plugin-api"],function(i,u){"use strict"
+Object.defineProperty(i,"__esModule",{value:!0}),i.default=void 0
+i.default={name:"github-admin-plugin-configuration-nav",initialize(i){const e=i.lookup("service:current-user")
+e?.admin&&(0,u.withPluginApi)(i=>{i.setAdminPluginIcon("discourse-github","fab-github")})}}})
+
+//# sourceMappingURL=discourse-github-d38f52fd.map

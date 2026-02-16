@@ -1,0 +1,175 @@
+define("discourse/plugins/discourse-math/discourse/components/modal/math-edit",["exports","@glimmer/component","@glimmer/tracking","@ember/object","discourse/components/d-button","discourse/components/d-modal","discourse/components/form","discourse-i18n","@ember/component","@ember/template-factory"],function(t,e,i,n,s,o,a,r,c,l){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+class u extends e.default{static{dt7948.g(this.prototype,"formApi",[i.tracked])}#t=void dt7948.i(this,"formApi")
+get initialData(){return{text:this.args.model?.initialText??""}}onSubmit(t){this.args.model?.onApply?.(t.text??""),this.args.closeModal()}static{dt7948.n(this.prototype,"onSubmit",[n.action])}onRegisterApi(t){this.formApi=t}static{dt7948.n(this.prototype,"onRegisterApi",[n.action])}submitForm(){this.formApi?.submit()}static{dt7948.n(this.prototype,"submitForm",[n.action])}cancel(){this.args.closeModal()}static{dt7948.n(this.prototype,"cancel",[n.action])}static{(0,c.setComponentTemplate)((0,l.createTemplateFactory)({id:"uRlyTnPk",block:'[[[8,[32,0],[[24,0,"math-edit-modal"]],[["@title","@closeModal"],[[28,[32,1],["discourse_math.edit_modal.title"],null],[30,1]]],[["body","footer"],[[[[1,"\\n    "],[8,[32,2],null,[["@data","@onSubmit","@onRegisterApi"],[[30,0,["initialData"]],[30,0,["onSubmit"]],[30,0,["onRegisterApi"]]]],[["default"],[[[[1,"\\n      "],[8,[30,2,["Field"]],null,[["@name","@title","@format"],["text",[28,[32,1],["discourse_math.edit_modal.label"],null],"full"]],[["default"],[[[[1,"\\n        "],[8,[30,3,["Textarea"]],[[24,0,"math-edit-modal__textarea"],[16,"autofocus",true]],null,null],[1,"\\n      "]],[3]]]]],[1,"\\n    "]],[2]]]]],[1,"\\n  "]],[]],[[[1,"\\n    "],[8,[32,3],[[24,0,"btn-primary math-edit-modal__apply"]],[["@action","@label"],[[30,0,["submitForm"]],"discourse_math.edit_modal.apply"]],null],[1,"\\n    "],[8,[32,3],[[24,0,"btn-default"]],[["@action","@label"],[[30,0,["cancel"]],"cancel"]],null],[1,"\\n  "]],[]]]]]],["@closeModal","form","field"],[]]',moduleName:"/var/www/discourse/frontend/discourse/discourse/plugins/discourse-math/discourse/components/modal/math-edit.js",scope:()=>[o.default,r.i18n,a.default,s.default],isStrictMode:!0}),this)}}t.default=u}),define("discourse/plugins/discourse-math/discourse/components/modal/math-insert",["exports","@glimmer/component","@glimmer/tracking","@ember/modifier","@ember/object","discourse/components/d-button","discourse/components/d-modal","discourse/components/d-toggle-switch","discourse/components/form","discourse-i18n","@ember/component","@ember/template-factory"],function(t,e,i,n,s,o,a,r,c,l,u,d){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+class m extends e.default{static{dt7948.g(this.prototype,"formApi",[i.tracked])}#t=void dt7948.i(this,"formApi")
+static{dt7948.g(this.prototype,"isBlock",[i.tracked])}#e=void dt7948.i(this,"isBlock")
+constructor(){super(...arguments),this.isBlock=this.args.model?.isBlock??!1}get initialData(){return{text:""}}get modalTitle(){return this.isBlock?(0,l.i18n)("discourse_math.insert_modal.title_block"):(0,l.i18n)("discourse_math.insert_modal.title_inline")}onSubmit(t){const e=t.text?.trim()??""
+e&&this.args.model?.onInsert?.(e,this.isBlock),this.args.closeModal()}static{dt7948.n(this.prototype,"onSubmit",[s.action])}onRegisterApi(t){this.formApi=t}static{dt7948.n(this.prototype,"onRegisterApi",[s.action])}submitForm(){this.formApi?.submit()}static{dt7948.n(this.prototype,"submitForm",[s.action])}cancel(){this.args.closeModal()}static{dt7948.n(this.prototype,"cancel",[s.action])}toggleBlockMode(){this.isBlock=!this.isBlock}static{dt7948.n(this.prototype,"toggleBlockMode",[s.action])}static{(0,u.setComponentTemplate)((0,d.createTemplateFactory)({id:"belhobM5",block:'[[[8,[32,0],[[24,0,"math-insert-modal"]],[["@title","@closeModal"],[[30,0,["modalTitle"]],[30,1]]],[["body","footer"],[[[[1,"\\n    "],[10,0],[14,0,"math-insert-modal__toggle"],[12],[1,"\\n      "],[8,[32,1],[[4,[32,2],["click",[30,0,["toggleBlockMode"]]],null]],[["@state","@label"],[[30,0,["isBlock"]],"discourse_math.insert_modal.block_mode"]],null],[1,"\\n    "],[13],[1,"\\n    "],[8,[32,3],null,[["@data","@onSubmit","@onRegisterApi"],[[30,0,["initialData"]],[30,0,["onSubmit"]],[30,0,["onRegisterApi"]]]],[["default"],[[[[1,"\\n      "],[8,[30,2,["Field"]],null,[["@name","@title","@format","@validation"],["text",[28,[32,4],["discourse_math.insert_modal.label"],null],"full","required"]],[["default"],[[[[1,"\\n        "],[8,[30,3,["Textarea"]],[[24,0,"math-insert-modal__textarea"],[16,"placeholder",[28,[32,4],["discourse_math.insert_modal.placeholder"],null]],[16,"autofocus",true]],null,null],[1,"\\n      "]],[3]]]]],[1,"\\n    "]],[2]]]]],[1,"\\n  "]],[]],[[[1,"\\n    "],[8,[32,5],[[24,0,"btn-primary math-insert-modal__insert"]],[["@action","@label"],[[30,0,["submitForm"]],"discourse_math.insert_modal.insert"]],null],[1,"\\n    "],[8,[32,5],[[24,0,"btn-default"]],[["@action","@label"],[[30,0,["cancel"]],"cancel"]],null],[1,"\\n  "]],[]]]]]],["@closeModal","form","field"],[]]',moduleName:"/var/www/discourse/frontend/discourse/discourse/plugins/discourse-math/discourse/components/modal/math-insert.js",scope:()=>[a.default,r.default,n.on,c.default,l.i18n,o.default],isStrictMode:!0}),this)}}t.default=m}),define("discourse/plugins/discourse-math/discourse/initializers/math-admin-plugin-configuration-nav",["exports","discourse/lib/plugin-api"],function(t,e){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+t.default={name:"math-admin-plugin-configuration-nav",initialize(t){const i=t.lookup("service:current-user")
+i?.admin&&(0,e.withPluginApi)(t=>{t.setAdminPluginIcon("discourse-math","square-root-variable")})}}}),define("discourse/plugins/discourse-math/initializers/discourse-math-rich-editor",["exports","discourse/lib/api","discourse/lib/composer/rich-editor-extensions","discourse/plugins/discourse-math/lib/rich-editor-extension"],function(t,e,i,n){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+t.default=(0,e.apiInitializer)(t=>{(0,i.getExtensions)().includes(n.default)||t.registerRichEditorExtension(n.default)})}),define("discourse/plugins/discourse-math/initializers/discourse-math",["exports","discourse/lib/api","discourse/plugins/discourse-math/discourse/components/modal/math-insert","discourse/plugins/discourse-math/lib/math-renderer"],function(t,e,i,n){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+t.default=(0,e.apiInitializer)(t=>{const e=t.container.lookup("service:site-settings"),s=(0,n.buildDiscourseMathOptions)(e)
+s.enabled&&function(t,e){const s=e.provider
+t.decorateCookedElement(t=>(0,n.renderMathInElement)(t,e),{id:s}),t.decorateChatMessage&&t.decorateChatMessage(t=>(0,n.renderMathInElement)(t,e),{id:`${s}-chat`})
+const o=t.container.lookup("service:modal")
+t.addComposerToolbarPopupMenuOption({name:"insert-math",label:"discourse_math.composer.insert_math",icon:"square-root-variable",shortcut:"Shift+M",action:t=>{const e=function(t){if(!t)return!0
+const e=t.lastIndexOf("\n")
+return""===(-1===e?t:t.slice(e+1)).trim()}(t.selected.pre)
+o.show(i.default,{model:{isBlock:e,onInsert:(e,i)=>{i?t.addText(`$$\n${e}\n$$\n`):t.addText(`$${e}$`)}}})}})}(t,s)})}),define("discourse/plugins/discourse-math/lib/discourse-markdown/discourse-math",["exports"],function(t){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.setup=function(t){if(!t.markdownIt)return
+t.allowList([`span.${s.MATH}`,`span.${s.ASCIIMATH}`,`div.${s.MATH}`]),t.registerOptions((t,e)=>{t.features.math=e.discourse_math_enabled,t.features.asciimath=e.discourse_math_enable_asciimath&&"mathjax"===e.discourse_math_provider,t.features.enable_latex_delimiters=e.discourse_math_enable_latex_delimiters}),t.registerPlugin(t=>{t.options.discourse.features.math&&(t.renderer.rules[n.INLINE]=(e,n)=>{const o=e[n],a=o.meta?.mathType
+return`<span class='${a===i.ASCIIMATH?s.ASCIIMATH:s.MATH}'>${t.utils.escapeHtml(o.content)}</span>`},t.renderer.rules[n.BLOCK]=(e,i)=>{const n=e[i],o=t.utils.escapeHtml(n.content)
+return`<div class='${s.MATH}'>\n${o}\n</div>\n`},t.options.discourse.features.asciimath&&t.inline.ruler.after("escape",s.ASCIIMATH,p),t.options.discourse.features.enable_latex_delimiters&&t.inline.ruler.before("text","math-paren",h),t.inline.ruler.after("escape",s.MATH,m),t.block.ruler.after("code",s.MATH,_,{alt:["paragraph","reference","blockquote","list"]}))})}
+const e={DOLLAR:36,PERCENT:37,BACKSLASH:92,OPEN_BRACKET:91,CLOSE_BRACKET:93},i={TEX:"tex",ASCIIMATH:"asciimath"},n={INLINE:"math_inline",BLOCK:"math_block"},s={MATH:"math",ASCIIMATH:"asciimath"},o=[12289,12290,65292,65306,65307,65294,65311,65281,1548,1563,1567,3631]
+function a(t,e,i){return t!==e&&(!!i.utils.isWhiteSpace(t)||(!!i.utils.isMdAsciiPunct(t)||(!!i.utils.isPunctChar(t)||!!o.includes(t))))}function r(t,e,i){const s=t.push(n.INLINE,"",0)
+s.content=e,s.meta={mathType:i}}function c(t,e){const i=t.push(n.BLOCK,"",0)
+i.content=e,i.block=!0}function l(t,i){let n=0,s=i-1
+for(;s>=0&&t.charCodeAt(s)===e.BACKSLASH;)n++,s--
+return n%2==1}function u(t,n,s){const o=t.pos,c=t.posMax
+if(n||t.src.charCodeAt(o)!==s||c<o+2)return!1
+if(t.src.charCodeAt(o+1)===s)return!1
+if(o>0){const e=t.src.charCodeAt(o-1)
+if(!a(e,s,t.md))return!1
+if(e===s)return!1}const u=function(t,e,i,n){for(let s=e;s<i;s++)if(t.charCodeAt(s)===n&&!l(t,s))return s
+return-1}(t.src,o+1,c,s)
+if(-1===u)return!1
+if(u+1<=c){const e=t.src.charCodeAt(u+1)
+if(e&&!a(e,s,t.md))return!1
+if(e===s)return!1}const d=t.src.slice(o+1,u)
+if(d.includes("\n"))return!1
+return r(t,d,s===e.DOLLAR?i.TEX:i.ASCIIMATH),t.pos=u+1,!0}function d(t,n,s,o){const a=t.pos,c=t.posMax
+if(n||c<a+s.length)return!1
+if(t.src.slice(a,a+s.length)!==s)return!1
+const l=a+s.length,u=function(t,i,n){const s=n.length
+for(let o=i;o<=t.length-s;o++){if(t.slice(o,o+s)!==n)continue
+let i=0,a=o-1
+for(;a>=0&&t.charCodeAt(a)===e.BACKSLASH;)i++,a--
+if(i%2==0)return o}return-1}(t.src,l,o)
+if(-1===u)return!1
+const d=t.src.slice(l,u)
+return!(!d||d.includes("\n"))&&(r(t,d,i.TEX),t.pos=u+o.length,!0)}function m(t,i){return u(t,i,e.DOLLAR)}function h(t,e){return d(t,e,"\\(","\\)")}function p(t,i){return u(t,i,e.PERCENT)}function f(t,e,i,n){for(let s=e;s<i;s++)if(!n.utils.isSpace(t.charCodeAt(s)))return!1
+return!0}function b(t,i,n,s){return t.src.charCodeAt(i)===e.DOLLAR&&(t.src.charCodeAt(i+1)===e.DOLLAR&&f(t.src,i+2,n,s))}function g(t,i,n,s){return t.src.charCodeAt(i)===e.BACKSLASH&&(t.src.charCodeAt(i+1)===e.CLOSE_BRACKET&&f(t.src,i+2,n,s))}function x(t,e,i,n,s){if(n)return!0
+const{nextLine:o,closed:a}=function(t,e,i,n){let s=e
+for(;;){if(s++,s>=i)return{nextLine:s,closed:!1}
+if(n(t,t.bMarks[s]+t.tShift[s],t.eMarks[s],t.md))return{nextLine:s,closed:!0}}}(t,e,i,s),r=function(t,e,i,n){const s=t.bMarks[e+1]+t.tShift[e+1],o=n?t.eMarks[i-1]:t.eMarks[i]
+return t.src.slice(s,o)}(t,e,o,a)
+return c(t,r),t.line=a?o+1:o,!0}function _(t,i,n,s){const o=t.bMarks[i]+t.tShift[i],a=t.eMarks[i],r=t.md.options.discourse.features.enable_latex_delimiters,l=t.src.slice(o,a).trim(),u=function(t,e,i,n,s){const o=[{start:"$$",end:"$$"}]
+s&&o.push({start:"\\[",end:"\\]"})
+for(const{start:a,end:r}of o)if(i.startsWith(a)&&i.endsWith(r)&&i.length>a.length+r.length){if(n)return!0
+const s=i.slice(a.length,-r.length).trim()
+return!!s&&(c(t,s),t.line=e+1,!0)}return null}(t,i,l,s,r)
+return null!==u?u:b(t,o,a,t.md)?x(t,i,n,s,b):!(!r||!function(t,i,n,s){return t.src.charCodeAt(i)===e.BACKSLASH&&t.src.charCodeAt(i+1)===e.OPEN_BRACKET&&f(t.src,i+2,n,s)}(t,o,a,t.md))&&x(t,i,n,s,g)}}),define("discourse/plugins/discourse-math/lib/katex-bundle",["exports","discourse/lib/get-url","discourse/lib/load-script","discourse/plugins/discourse-math/lib/math-bundle-paths"],function(t,e,i,n){"use strict"
+function s(){return(0,n.getKaTeXBasePath)()}let o,a,r,c
+Object.defineProperty(t,"__esModule",{value:!0}),t.getKaTeX=function(){return window.katex},t.loadCopyTex=function(){c||(c=(0,i.default)((0,e.getURLWithCDN)(`${s()}/contrib/copy-tex.min.js`)))
+return c},t.loadKaTeX=async function(){a||(a=(0,i.default)((0,e.getURLWithCDN)(`${s()}/katex.min.css`),{css:!0}))
+await a,o||(o=(0,i.default)((0,e.getURLWithCDN)(`${s()}/katex.min.js`)))
+return await o,window.katex},t.loadMhchem=function(){r||(r=(0,i.default)((0,e.getURLWithCDN)(`${s()}/contrib/mhchem.min.js`)))
+return r}}),define("discourse/plugins/discourse-math/lib/load-katex",["exports","discourse/plugins/discourse-math/lib/katex-bundle"],function(t,e){"use strict"
+let i,n,s
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=async function(t={}){i||(i=(0,e.loadKaTeX)())
+await i,t.enableMhchem&&!n&&(n=(0,e.loadMhchem)())
+t.enableCopyTex&&!s&&(s=(0,e.loadCopyTex)())
+return await Promise.all([n,s].filter(Boolean)),(0,e.getKaTeX)()??window.katex}}),define("discourse/plugins/discourse-math/lib/load-mathjax",["exports","discourse/plugins/discourse-math/lib/mathjax-bundle"],function(t,e){"use strict"
+let i
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=async function(t={}){const n="svg"===t.output?"svg":"html"
+i||(i=(0,e.loadOutput)(n))
+return await i,await window.MathJax.startup.promise,(0,e.getMathJax)()??window.MathJax}}),define("discourse/plugins/discourse-math/lib/math-bundle-paths",["exports","discourse/lib/helpers"],function(t,e){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.getKaTeXBasePath=function(){return`${n()}/katex`},t.getMathJaxBasePath=function(){return`${n()}/mathjax`}
+const i="/plugins/discourse-math"
+function n(){const t=(0,e.helperContext)()
+return t?.site?.discourse_math_bundle_url||i}}),define("discourse/plugins/discourse-math/lib/math-renderer",["exports","@ember/debug","@ember/runloop","discourse/lib/environment","discourse/lib/get-url","discourse/lib/text","discourse/plugins/discourse-math/lib/load-katex","discourse/plugins/discourse-math/lib/load-mathjax","discourse/plugins/discourse-math/lib/math-bundle-paths"],function(t,e,i,n,s,o,a,r,c){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.buildDiscourseMathOptions=function(t){const e=t.discourse_math_provider
+return{enabled:t.discourse_math_enabled,provider:e,enable_menu:t.discourse_math_enable_menu,enable_asciimath:t.discourse_math_enable_asciimath&&"mathjax"===e,enable_accessibility:t.discourse_math_enable_accessibility,mathjax_output:t.discourse_math_mathjax_output,zoom_on_click:t.discourse_math_zoom_on_click}},t.renderKatex=C,t.renderMathInElement=function(t,e,i={}){if(!t||!e?.enabled)return
+if((0,n.isTesting)())return
+if("mathjax"===e.provider)return void M(t,e,i)
+"katex"===e.provider&&C(t,i)},t.renderMathJax=M,t.resetMathJaxState=function(){f.reset()}
+const l={HIDDEN:"math-hidden",APPLIED_MATHJAX:"math-applied-mathjax",APPLIED_KATEX:"math-applied-katex"},u=200,d="data-math-original",m=new WeakMap,h=/^[A-Za-z_][A-Za-z0-9_.:-]*$/
+function p(t,e){if((0,n.isTesting)())return
+e?.message&&e.message}const f=new class{#i=!1
+#n=null
+reset(){this.#i=!1,this.#n=null}isInitializedWith(t){return this.#i&&this.#n===t}markInitialized(t){this.#i=!0,this.#n=t}}
+function b(t){const e=function(t){return JSON.stringify({output:t.mathjax_output,a11y:t.enable_accessibility,zoom:t.zoom_on_click,ascii:t.enable_asciimath,menu:t.enable_menu})}(t)
+f.isInitializedWith(e)||(window.MathJax=function(t){const e=(0,c.getMathJaxBasePath)(),i={startup:{typeset:!1,ready:()=>window.MathJax?.startup?.defaultReady?.()},chtml:{},svg:{},loader:{load:["ui/safe"],paths:{mathjax:(0,s.getURLWithCDN)(e)}},options:{menuOptions:{settings:{}}},tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]},asciimath:{delimiters:[["%","%"]]}}
+return"html"===t.mathjax_output?i.chtml.fontURL=(0,s.getURLWithCDN)(`${e}/woff-v2`):"svg"===t.mathjax_output&&(i.svg.fontCache="global"),t.enable_menu?i.options.enableMenu=!0:i.options.enableMenu=!1,i.options.menuOptions.settings={enrich:Boolean(t.enable_accessibility)},t.zoom_on_click&&(i.options.menuOptions.settings.zoom="Click",i.options.menuOptions.settings.zscale="175%"),t.enable_asciimath&&i.loader.load.push("input/asciimath"),i}(t),f.markInitialized(e))}function g(t,e,i){const n=document.createElement(t)
+return n.className=`${e} ${l.HIDDEN}`,n.setAttribute("hidden",""),n.textContent=i,n}function x(t,e){const i=e.enable_asciimath?".math, .asciimath":".math",n=t.querySelectorAll(i),s=[]
+return n.forEach(t=>{if(t.classList.contains(l.APPLIED_MATHJAX))return
+t.classList.add(l.APPLIED_MATHJAX)
+const e=function(t){if(t.classList.contains("math")){const e="DIV"===t.tagName?"div":"span",i="div"===e?["\\[","\\]"]:["\\(","\\)"],n=g(e,`math-container ${"div"===e?"block-math":"inline-math"} mathjax-math`,`${i[0]}${t.textContent}${i[1]}`)
+return t.after(n),n}if(t.classList.contains("asciimath")){const e=g("span","math-container inline-math ascii-math mathjax-math",`%${t.textContent}%`)
+return t.after(e),e}return null}(t)
+e&&s.push({original:t,wrapper:e})}),s}function _(t){return t.filter(({original:t,wrapper:e})=>e?.isConnected&&function(t){if(!t?.isConnected)return!1
+if(t.closest("[hidden]"))return!1
+const e=window.getComputedStyle(t)
+return"none"!==e.display&&"hidden"!==e.visibility}(t))}function A(t){t.forEach(({original:t,wrapper:e})=>{var i
+i=t,i?.isConnected&&(i.classList.add(l.HIDDEN),i.setAttribute("hidden","")),e?.isConnected&&(function(t){t.querySelectorAll("mjx-container").forEach(t=>{t.style.removeProperty("display")})}(e),function(t){t?.isConnected&&(t.classList.remove(l.HIDDEN),t.removeAttribute("hidden"))}(e))})}async function y(t,e){try{const i=await async function(t){return b(t),await(0,r.default)({output:t.mathjax_output})}(e),n=_(t)
+if(0===n.length||!i?.typesetPromise)return
+await i.typesetPromise(n.map(({wrapper:t})=>t)),A(n)}catch(i){p(0,i),function(t){t.forEach(({original:t,wrapper:e})=>{t?.isConnected&&(t.classList.remove(l.HIDDEN,l.APPLIED_MATHJAX),t.removeAttribute("hidden")),e?.isConnected&&e.remove()})}(t)}}function M(t,e,n={}){if(!t)return
+n.force&&(function(t){const e=m.get(t)
+e&&((0,i.cancel)(e.timer),m.delete(t))}(t),function(t,e){const i=e.enable_asciimath?".math, .asciimath":".math"
+t.querySelectorAll(i).forEach(t=>{t.classList.remove(l.APPLIED_MATHJAX,l.HIDDEN),t.removeAttribute("hidden")}),t.querySelectorAll(".math-container.mathjax-math").forEach(t=>t.remove())}(t,e))
+const s=x(t,e)
+if(0===s.length)return
+const o=t.classList.contains("d-editor-preview");(function(t,e,n,s){const o=m.get(t)
+if(o){(0,i.cancel)(o.timer)
+const a=new Set(o.wrappers.map(({wrapper:t})=>t))
+return e.forEach(t=>{a.has(t.wrapper)||(o.wrappers.push(t),a.add(t.wrapper))}),o.opts=n,void(o.timer=(0,i.later)(()=>{m.delete(t),y(o.wrappers,o.opts)},s))}const a={wrappers:[...e],opts:n,timer:null}
+a.timer=(0,i.later)(()=>{m.delete(t),y(a.wrappers,a.opts)},s),m.set(t,a)})(t,s,e,o?u:0)}async function C(t,e={}){if(!t)return
+const i=t.querySelectorAll(".math")
+if(0===i.length)return
+e.force&&function(t){t.querySelectorAll(".math").forEach(t=>{const e=t.getAttribute(d),i=!!t.querySelector(".katex")
+e&&i&&(t.textContent=e),t.removeAttribute(d),t.classList.remove(l.APPLIED_KATEX,"math-container","inline-math","block-math","katex-math")})}(t)
+try{await async function(){(0,n.isTesting)()&&window.katex||await(0,a.default)({enableMhchem:!0,enableCopyTex:!0})}()}catch(r){return void p(0,r)}const s={trust:t=>{if("\\href"===t.command)return Boolean(function(t){if(!t||/[<>"']/.test(t))return null
+try{const e=new URL(t,window.location.origin),i=t.startsWith("/")||t.startsWith("#"),n=["http:","https:","mailto:"].includes(e.protocol)
+if(!i&&!n)return null
+const s=(0,o.sanitize)(t)
+return!s||""===s.trim()||s.includes("&gt;")||s.includes("&lt;")?null:s}catch{return null}}(t.url))
+if("\\htmlId"===t.command){const i=t.url||t.text||t.id
+return e=i,Boolean(e)&&h.test(e)}var e
+return!1},macros:{"\\eqref":"\\href{###1}{(\\text{#1})}","\\ref":"\\href{###1}{\\text{#1}}","\\label":"\\htmlId{#1}{}"},displayMode:!1}
+i.forEach(t=>function(t,e){if(t.classList.contains(l.APPLIED_KATEX))return
+if(!t.classList.contains("math"))return
+t.classList.add(l.APPLIED_KATEX)
+const i="DIV"===t.tagName,n=i?"block-math":"inline-math",s=t.querySelector(".katex")?t.getAttribute(d):t.textContent,o=t.querySelector("annotation[encoding='application/x-tex']")?.textContent,a=s??o??t.textContent??""
+t.setAttribute(d,a),t.classList.add("math-container",n,"katex-math"),t.textContent=""
+try{window.katex.render(a,t,{...e,displayMode:i})}catch(r){p(0,r),t.textContent=a,t.removeAttribute(d),t.classList.remove(l.APPLIED_KATEX,"math-container",n,"katex-math")}}(t,s))}}),define("discourse/plugins/discourse-math/lib/mathjax-bundle",["exports","discourse/lib/get-url","discourse/lib/load-script","discourse/plugins/discourse-math/lib/math-bundle-paths"],function(t,e,i,n){"use strict"
+let s
+Object.defineProperty(t,"__esModule",{value:!0}),t.getMathJax=function(){return window.MathJax},t.loadOutput=function(t){if(!s){const o="svg"===t?"tex-mml-svg.js":"tex-mml-chtml.js"
+s=(0,i.default)((0,e.getURLWithCDN)(`${(0,n.getMathJaxBasePath)()}/${o}`))}return s}}),define("discourse/plugins/discourse-math/lib/rich-editor-extension",["exports","discourse/lib/icon-library","discourse-i18n","discourse/plugins/discourse-math/discourse/components/modal/math-edit","discourse/plugins/discourse-math/lib/math-renderer"],function(t,e,i,n,s){"use strict"
+Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
+const o=({getContext:t,pmState:{NodeSelection:e}})=>(i,n,s)=>new r({node:i,view:n,getPos:s,getContext:t,NodeSelection:e})
+function a(t,e){if(!t)return""
+let i=""
+for(let n=0;n<t.length;n++){const s=t[n]
+if(s===e){let e=0,s=n-1
+for(;s>=0&&"\\"===t[s];)e++,s--
+e%2==0&&(i+="\\")}i+=s}return i}class r{node
+view
+getPos
+getContext
+NodeSelection
+dom
+editButton
+content
+openEditModal=t=>{t.preventDefault(),t.stopPropagation()
+const{modal:e}=this.getContext()
+e.show(n.default,{model:{initialText:this.node.attrs.text??"",isBlock:!this.node.isInline,mathType:this.node.attrs.mathType??"tex",onApply:t=>this.#s(t)}})}
+constructor({node:t,view:n,getPos:s,getContext:o,NodeSelection:a}){this.node=t,this.view=n,this.getPos=s,this.getContext=o,this.NodeSelection=a
+const r=t.isInline
+this.dom=document.createElement(r?"span":"div"),this.dom.classList.add("composer-math-node"),this.editButton=document.createElement("button"),this.editButton.type="button",this.editButton.classList.add("btn-flat","math-node-edit-button"),this.editButton.setAttribute("contenteditable","false"),this.editButton.setAttribute("title",(0,i.i18n)("discourse_math.edit_math")),this.editButton.setAttribute("aria-label",(0,i.i18n)("discourse_math.edit_math")),this.editButton.innerHTML=(0,e.iconHTML)("pencil"),this.editButton.addEventListener("click",this.openEditModal),this.content=document.createElement(r?"span":"div"),this.content.classList.add("math-node-content"),this.content.setAttribute("contenteditable","false"),this.dom.appendChild(this.editButton),this.dom.appendChild(this.content),this.#o(),this.#a(!0)}update(t){const e=t.attrs.text!==this.node.attrs.text||t.attrs.mathType!==this.node.attrs.mathType
+return this.node=t,e&&(this.#o(),this.#a(!0)),!0}selectNode(){this.dom.classList.add("ProseMirror-selectednode")}deselectNode(){this.dom.classList.remove("ProseMirror-selectednode")}stopEvent(t){return t.target instanceof Node&&this.editButton.contains(t.target)}ignoreMutation(){return!0}destroy(){this.editButton.removeEventListener("click",this.openEditModal)}#o(){const t=this.node.isInline&&"asciimath"===this.node.attrs.mathType
+this.content.classList.toggle("asciimath",t),this.content.classList.toggle("math",!t),this.content.textContent=this.node.attrs.text??""}#a(t=!1){const e=(0,s.buildDiscourseMathOptions)(this.getContext().siteSettings);(0,s.renderMathInElement)(this.dom,e,{force:t})}#s(t){const e=this.getPos(),i={...this.node.attrs,text:t},n=this.view.state.tr.setNodeMarkup(e,null,i)
+n.setSelection(this.NodeSelection.create(n.doc,e)),this.view.dispatch(n)}}const c={nodeViews:{math_inline:o,math_block:o},nodeSpec:{math_inline:{inline:!0,group:"inline",atom:!0,selectable:!0,draggable:!0,attrs:{text:{default:""},mathType:{default:"tex"}},parseDOM:[{tag:"span.math",getAttrs:t=>({text:t.textContent,mathType:"tex"})},{tag:"span.asciimath",getAttrs:t=>({text:t.textContent,mathType:"asciimath"})}],toDOM:t=>["span",{class:"asciimath"===t.attrs.mathType?"asciimath":"math"},t.attrs.text]},math_block:{group:"block",atom:!0,selectable:!0,defining:!0,isolating:!0,attrs:{text:{default:""},mathType:{default:"tex"}},parseDOM:[{tag:"div.math",getAttrs:t=>({text:t.textContent,mathType:"tex"})}],toDOM:t=>["div",{class:"math"},t.attrs.text]}},parse:{math_inline:{node:"math_inline",getAttrs:t=>({text:t.content,mathType:t.meta?.mathType||"tex"})},math_block:{node:"math_block",getAttrs:t=>({text:t.content,mathType:t.meta?.mathType||"tex"})}},serializeNode:({utils:{isBoundary:t}})=>({math_inline(e,i,n,s){e.flushClose(),t(e.out,e.out.length-1)||e.write(" ")
+const o="asciimath"===i.attrs.mathType?"%":"$",r=a(i.attrs.text??"",o)
+e.write(`${o}${r}${o}`)
+const c=n.childCount>s+1?n.child(s+1):null
+c?.isText&&!t(c.text,0)&&e.write(" ")},math_block(t,e){t.ensureNewLine()
+const i=a(e.attrs.text??"","$")
+t.write("$$\n"),t.write(i),t.write("\n$$\n\n")}})}
+t.default=c})
+
+//# sourceMappingURL=discourse-math-3459d73e.map
