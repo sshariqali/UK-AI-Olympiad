@@ -7,3 +7,4 @@ torchvision
 seaborn
 plotly-express
 tiktoken
+nltk
